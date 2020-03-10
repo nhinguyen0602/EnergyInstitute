@@ -1,9 +1,9 @@
 module UtilService::TokenGenerator
 
-  def self.call(account)
+  def self.call(user)
     payload = {
-      user_id: account.user_id,
-      email: account.email
+      user_id: user.id,
+      email: user.email
     }
     UtilService::JsonWebToken.encode(payload)
   end
