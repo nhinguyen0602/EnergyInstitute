@@ -5,6 +5,6 @@ class Enterprise < ApplicationRecord
     validates :year_of_investigation, presence: true
 
     belongs_to :sector
-    belongs_to :user
+    has_many :users
     has_one :address
 end
