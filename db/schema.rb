@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_073757) do
+ActiveRecord::Schema.define(version: 2020_03_11_075003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 2020_03_11_073757) do
     t.float "coordinate_Y"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "enterprises", force: :cascade do |t|
+    t.bigint "sector_id", null: false
+    t.bigint "address_id", null: false
+    t.string "name"
+    t.float "production_value"
+    t.integer "number_of_employee"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_enterprises_on_address_id"
+    t.index ["sector_id"], name: "index_enterprises_on_sector_id"
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -48,5 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_073757) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "enterprises", "addresses"
+  add_foreign_key "enterprises", "sectors"
   add_foreign_key "sectors", "subsectors"
 end
