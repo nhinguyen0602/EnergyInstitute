@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_081031) do
+ActiveRecord::Schema.define(version: 2020_03_12_025203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "energy_consumptions", force: :cascade do |t|
+    t.bigint "enterprise_id"
+    t.integer "year_of_investigation"
+    t.integer "self_produced_electricity"
+    t.integer "consumption_electricity"
+    t.integer "coal"
+    t.integer "bitum_coal"
+    t.integer "coke_coal"
+    t.integer "dust_coal"
+    t.integer "ko"
+    t.integer "do"
+    t.integer "fo"
+    t.integer "lpg"
+    t.integer "ng"
+    t.integer "biomass_energy"
+    t.integer "renewable_energy"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enterprise_id"], name: "index_energy_consumptions_on_enterprise_id"
+  end
 
   create_table "enterprise_details", force: :cascade do |t|
     t.string "provincial"
@@ -63,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_081031) do
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
   end
 
+  add_foreign_key "energy_consumptions", "enterprises"
   add_foreign_key "enterprises", "enterprise_details"
   add_foreign_key "enterprises", "sectors"
   add_foreign_key "sectors", "subsectors"

@@ -3,4 +3,5 @@ class Enterprise < ApplicationRecord
     belongs_to :sector
     has_many :users
     has_one :enterprise_detail
+    has_many :energy_consumptions
 end
