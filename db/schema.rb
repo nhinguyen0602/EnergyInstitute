@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_082450) do
+ActiveRecord::Schema.define(version: 2020_03_11_081031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "enterprise_details", force: :cascade do |t|
     t.string "provincial"
     t.string "district"
     t.string "commune"
-    t.float "coordinate_X"
-    t.float "coordinate_Y"
+    t.float "lat"
+    t.float "lng"
+    t.float "production_value"
+    t.integer "number_of_employee"
+    t.integer "year_of_investigation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "enterprises", force: :cascade do |t|
     t.bigint "sector_id", null: false
-    t.bigint "address_id", null: false
+    t.bigint "enterprise_detail_id", null: false
     t.string "name"
-    t.float "production_value"
-    t.integer "number_of_employee"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "year_of_investigation"
-    t.index ["address_id"], name: "index_enterprises_on_address_id"
+    t.index ["enterprise_detail_id"], name: "index_enterprises_on_enterprise_detail_id"
     t.index ["sector_id"], name: "index_enterprises_on_sector_id"
   end
 
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_082450) do
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
   end
 
-  add_foreign_key "enterprises", "addresses"
+  add_foreign_key "enterprises", "enterprise_details"
   add_foreign_key "enterprises", "sectors"
   add_foreign_key "sectors", "subsectors"
   add_foreign_key "users", "enterprises"

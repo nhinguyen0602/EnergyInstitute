@@ -1,4 +1,4 @@
-class Address < ApplicationRecord
+class EnterpriseDetail < ApplicationRecord
   validates :provincial, presence: true
   validates :district, presence: true
   validates :commune, presence: true
