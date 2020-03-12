@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_031317) do
+ActiveRecord::Schema.define(version: 2020_03_12_032008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2020_03_12_031317) do
     t.index ["sector_id"], name: "index_enterprises_on_sector_id"
   end
 
+  create_table "productivities", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "year_of_investigation"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_productivities_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.bigint "enterprise_id"
     t.string "name"
@@ -95,6 +104,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_031317) do
   add_foreign_key "energy_consumptions", "enterprises"
   add_foreign_key "enterprises", "enterprise_details"
   add_foreign_key "enterprises", "sectors"
+  add_foreign_key "productivities", "products"
   add_foreign_key "products", "enterprises"
   add_foreign_key "sectors", "subsectors"
   add_foreign_key "users", "enterprises"
