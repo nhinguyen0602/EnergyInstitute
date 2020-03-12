@@ -5,4 +5,5 @@ class Enterprise < ApplicationRecord
   has_one :enterprise_detail
   has_many :energy_consumptions
   has_many :products
+  has_many :greenhouse_emissions
 end

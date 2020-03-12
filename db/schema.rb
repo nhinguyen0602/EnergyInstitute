@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_033248) do
+ActiveRecord::Schema.define(version: 2020_03_12_065609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 2020_03_12_033248) do
     t.index ["sector_id"], name: "index_enterprises_on_sector_id"
   end
 
+  create_table "greenhouse_emissions", force: :cascade do |t|
+    t.integer "year_of_investigation"
+    t.bigint "enterprise_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enterprise_id"], name: "index_greenhouse_emissions_on_enterprise_id"
+    t.index ["product_id"], name: "index_greenhouse_emissions_on_product_id"
+  end
+
   create_table "productivities", force: :cascade do |t|
     t.bigint "product_id"
     t.integer "year_of_investigation"
@@ -117,6 +127,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_033248) do
   add_foreign_key "energy_consumptions", "enterprises"
   add_foreign_key "enterprises", "enterprise_details"
   add_foreign_key "enterprises", "sectors"
+  add_foreign_key "greenhouse_emissions", "enterprises"
+  add_foreign_key "greenhouse_emissions", "products"
   add_foreign_key "productivities", "products"
   add_foreign_key "products", "enterprises"
   add_foreign_key "sectors", "subsectors"
