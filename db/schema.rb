@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
   create_table "enterprises", force: :cascade do |t|
     t.bigint "sector_id", null: false
     t.bigint "enterprise_detail_id", null: false
+    t.string "tax_code"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
