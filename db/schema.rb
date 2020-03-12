@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_032008) do
+ActiveRecord::Schema.define(version: 2020_03_12_033248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "emission_factors", force: :cascade do |t|
+    t.bigint "subsector_id"
+    t.string "emission_source"
+    t.integer "unit"
+    t.integer "carbon_dioxide"
+    t.integer "methane"
+    t.integer "nitrous_dioxide"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subsector_id"], name: "index_emission_factors_on_subsector_id"
+  end
 
   create_table "energy_consumptions", force: :cascade do |t|
     t.bigint "enterprise_id"
@@ -101,6 +113,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_032008) do
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
   end
 
+  add_foreign_key "emission_factors", "subsectors"
   add_foreign_key "energy_consumptions", "enterprises"
   add_foreign_key "enterprises", "enterprise_details"
   add_foreign_key "enterprises", "sectors"
