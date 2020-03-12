@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_072007) do
+ActiveRecord::Schema.define(version: 2020_03_12_073142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2020_03_12_072007) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["sector_id"], name: "index_emission_factors_on_sector_id"
+  end
+
+  create_table "emission_reasons", force: :cascade do |t|
+    t.string "contain"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "energy_consumptions", force: :cascade do |t|
@@ -71,10 +77,16 @@ ActiveRecord::Schema.define(version: 2020_03_12_072007) do
     t.index ["sector_id"], name: "index_enterprises_on_sector_id"
   end
 
-  create_table "greenhouse_emission_reasons", force: :cascade do |t|
-    t.string "contain"
+  create_table "greenhouse_emission_details", force: :cascade do |t|
+    t.bigint "greenhouse_emission_id"
+    t.bigint "emission_reason_id"
+    t.integer "carbon_dioxide", default: 0
+    t.integer "methane", default: 0
+    t.integer "nitrous_dioxide", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["emission_reason_id"], name: "index_greenhouse_emission_details_on_emission_reason_id"
+    t.index ["greenhouse_emission_id"], name: "index_greenhouse_emission_details_on_greenhouse_emission_id"
   end
 
   create_table "greenhouse_emissions", force: :cascade do |t|
@@ -133,6 +145,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_072007) do
   add_foreign_key "energy_consumptions", "enterprises"
   add_foreign_key "enterprises", "enterprise_details"
   add_foreign_key "enterprises", "sectors"
+  add_foreign_key "greenhouse_emission_details", "emission_reasons"
+  add_foreign_key "greenhouse_emission_details", "greenhouse_emissions"
   add_foreign_key "greenhouse_emissions", "enterprises"
   add_foreign_key "greenhouse_emissions", "products"
   add_foreign_key "productivities", "products"
