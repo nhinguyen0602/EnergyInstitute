@@ -4,4 +4,5 @@ class Enterprise < ApplicationRecord
     has_many :users
     has_one :enterprise_detail
     has_many :energy_consumptions
+    has_many :products
 end
