@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end 
     scope :enterprises do
       get '', to: 'enterprises#show'
+      put '', to: 'enterprises#update'
     end
   end
 end
