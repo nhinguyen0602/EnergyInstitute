@@ -10,7 +10,7 @@ module UtilService
     def self.decode(token)
       body = JWT.decode(token, HMAC_SECRET)[0]
       HashWithIndifferentAccess.new body
-    rescue JWT::ExpiredSignature, JWT::VerificationError => e
+    rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => e
       raise ExceptionHandler::AuthenticationError, e.message
     end
   end

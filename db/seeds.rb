@@ -20,6 +20,15 @@ enterprise_detail = enterprise.enterprise_details.create!(
   production_value: 100000
 )
 
+enterprise.enterprise_details.create!(
+  provincial: 'Thừa Thiên Huế ',
+  district: 'Hương Trà ',
+  commune: 'Tứ Hạ ',
+  year_of_investigation: 2018,
+  number_of_employee: 29,
+  production_value: 100000
+)
+
 user = enterprise.users.create!(
   name: 'Nguyễn Nhi', 
   email: 'nhinguyen@novahub.vn',
