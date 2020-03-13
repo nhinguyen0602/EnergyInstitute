@@ -11,7 +11,7 @@ enterprise = sector.enterprises.create!(
   name: 'Novahub',
 )
 
-enterprise_detail = enterprise.create_enterprise_detail!(
+enterprise_detail = enterprise.enterprise_details.create!(
   provincial: 'Đà Nẵng ',
   district: 'Hải Châu ',
   commune: 'Thạch Thang ',
