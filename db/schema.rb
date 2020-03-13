@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
   end
 
   create_table "enterprise_details", force: :cascade do |t|
+    t.bigint "enterprise_id"
     t.string "provincial"
     t.string "district"
     t.string "commune"
@@ -65,16 +66,15 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
     t.integer "year_of_investigation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["enterprise_id"], name: "index_enterprise_details_on_enterprise_id"
   end
 
   create_table "enterprises", force: :cascade do |t|
-    t.bigint "sector_id", null: false
-    t.bigint "enterprise_detail_id", null: false
+    t.bigint "sector_id"
     t.string "tax_code"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["enterprise_detail_id"], name: "index_enterprises_on_enterprise_detail_id"
     t.index ["sector_id"], name: "index_enterprises_on_sector_id"
   end
 
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
 
   add_foreign_key "emission_factors", "sectors"
   add_foreign_key "energy_consumptions", "enterprises"
-  add_foreign_key "enterprises", "enterprise_details"
+  add_foreign_key "enterprise_details", "enterprises"
   add_foreign_key "enterprises", "sectors"
   add_foreign_key "greenhouse_emission_details", "emission_reasons"
   add_foreign_key "greenhouse_emission_details", "greenhouse_emissions"

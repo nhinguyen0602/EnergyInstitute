@@ -1,6 +1,7 @@
 class CreateEnterpriseDetails < ActiveRecord::Migration[6.0]
   def change
     create_table :enterprise_details do |t|
+      t.references :enterprise, foreign_key: true
       t.string :provincial
       t.string :district
       t.string :commune
