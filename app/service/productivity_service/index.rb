@@ -1,4 +1,4 @@
-module ProductivityService::Show
+module ProductivityService::Index
   def self.call(product_id, year)
     if year == ''
       productivities = Productivity.belong_product(product_id)
