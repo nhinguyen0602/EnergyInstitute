@@ -6,6 +6,6 @@ module EnterpriseService::Update
     else
       enterprise_detail_at_year[0].update!(enterpeise_params)
     end
-    return user.enterprise, enterprise_detail_at_year
+    return user.enterprise, EnterpriseDetail.belong_enterprise(user.enterprise.id).at_year(enterpeise_params[:year_of_investigation])
   end
 end
