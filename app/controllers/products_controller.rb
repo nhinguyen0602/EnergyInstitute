@@ -13,6 +13,11 @@ class ProductsController < ApplicationController
     ProductService::Destroy.call(params[:id])
   end
 
+  def update
+    product = ProductService::Update.call(params[:id], product_params)
+    render_one product
+  end
+
   def render_one product
     data = {
       product: product

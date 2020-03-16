@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         put '', to: 'energy_consumptions#update'
       end
 
-      resources :products, only: %i[create show destroy] do
+      resources :products, only: %i[create show update destroy] do
       end
     end
   end
