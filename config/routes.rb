@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
 
       resources :products, only: %i[create show update destroy] do
+        resources :productivities, only: %i[index]
       end
     end
   end
