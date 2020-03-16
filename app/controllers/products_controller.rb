@@ -9,6 +9,10 @@ class ProductsController < ApplicationController
     render_one product
   end
 
+  def destroy 
+    ProductService::Destroy.call(params[:id])
+  end
+
   def render_one product
     data = {
       product: product
