@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       put '', to: 'enterprises#update'
       scope :energy_connsumptions do
         get '', to: 'energy_consumptions#show'
+        put '', to: 'energy_consumptions#update'
       end
     end
   end
