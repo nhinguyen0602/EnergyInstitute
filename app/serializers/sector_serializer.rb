@@ -1,4 +1,4 @@
 class SectorSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  has_one :subsector, serializer: SubsectorSerializer
+  attributes :id, :name, :subsector_id
+  has_one :subsector
 end
