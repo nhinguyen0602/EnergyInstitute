@@ -17,8 +17,8 @@ class EnergyConsumptionsController < ApplicationController
 
   def energy_consumption_params
     params.require(%i[year_of_investigation self_produced_electricity consumption_electricity biomass_energy renewable_energy])
-    params.permit(:year_of_investigation, :self_produced_electricity, :consumption_electricity, :biomass_energy, :renewable_energy
-                , :coal, :bitum_coal, :coke_coal, :dust_coal, :ko, :do, :fo, :lpg, :ng)
+    params.permit(:year_of_investigation, :self_produced_electricity, :consumption_electricity, :biomass_energy, :renewable_energy,
+                 :coal, :bitum_coal, :coke_coal, :dust_coal, :ko, :do, :fo, :lpg, :ng)
   end
-  
+
 end
