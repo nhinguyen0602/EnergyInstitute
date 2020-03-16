@@ -6,4 +6,7 @@ class EnterpriseDetail < ApplicationRecord
   validates :number_of_employee, presence: true
   validates :production_value, presence: true
   belongs_to :enterprise
+
+  scope :belong_enterprise, ->(enterprise_id){ where("enterprise_id= ?", enterprise_id) }
+  scope :at_year, ->(year){ where("year_of_investigation =?", year) }
 end

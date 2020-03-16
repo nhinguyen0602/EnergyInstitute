@@ -4,5 +4,9 @@ Rails.application.routes.draw do
       post 'sign_in', to: 'auth#sign_in'
       post 'sign_up', to: 'auth#sign_up'
     end 
+    scope :enterprises do
+      get '', to: 'enterprises#show'
+      put '', to: 'enterprises#update'
+    end
   end
 end
