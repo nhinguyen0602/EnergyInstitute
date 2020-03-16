@@ -34,7 +34,23 @@ user = enterprise.users.create!(
   email: 'nhinguyen@novahub.vn',
   password: 'nhinhinhi'
 )
-# enterprise.users << user
-# enterprise.enterprise_detail = enterprise_detail
+
+enterprise.energy_consumptions.create!(
+  year_of_investigation: 2019,
+  self_produced_electricity: 10,
+  consumption_electricity: 10,
+  coal: 10,
+  bitum_coal: 10,
+  coke_coal: 10,
+  dust_coal: 10,
+  ko: 10,
+  do: 10,
+  fo: 10,
+  lpg: 10,
+  ng: 10,
+  biomass_energy: 10,
+  renewable_energy: 10
+)
+
 
 
