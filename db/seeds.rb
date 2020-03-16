@@ -1,7 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+subsector = Subsector.create!(
+  name: 'Lĩnh vực công thương'
+)
+
+sector = subsector.sectors.create!(
+  name: 'Kinh doanh xăng dầu'
+)
+
+enterprise = sector.enterprises.create!(
+  tax_code: 'MS01',
+  name: 'Novahub',
+)
+
+enterprise_detail = enterprise.enterprise_details.create!(
+  provincial: 'Đà Nẵng ',
+  district: 'Hải Châu ',
+  commune: 'Thạch Thang ',
+  year_of_investigation: 2020,
+  number_of_employee: 25,
+  production_value: 100000
+)
+
+user = enterprise.users.create!(
+  name: 'Nguyễn Nhi', 
+  email: 'nhinguyen@novahub.vn',
+  password: 'nhinhinhi'
+)
+# enterprise.users << user
+# enterprise.enterprise_detail = enterprise_detail
+
+
