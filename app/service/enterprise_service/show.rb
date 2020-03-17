@@ -1,9 +1,7 @@
 module EnterpriseService::Show
   def self.call(user, year)
-    if year ==''
-      return user.enterprise,EnterpriseDetail.belong_enterprise(user.enterprise)
-    else
-      return user.enterprise,EnterpriseDetail.belong_enterprise(user.enterprise).at_year(year)
-    end
+    enterprise_details = EnterpriseDetail.belong_enterprise(user.enterprise)
+    enterprise_details =  enterprise_details.at_year(year) if year.present?
+    return user.enterprise, enterprise_details
   end  
 end
