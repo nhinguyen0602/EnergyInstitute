@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     end
 
     resources :subsectors, only: %i[index show] do
-      resources :sectors, only: %i[index show]
+      resources :sectors, only: %i[index show] do
+        resources :emission_factors, only: %i[index]
+      end
     end
   end
 end
