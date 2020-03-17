@@ -6,6 +6,6 @@ module ProductivityService::Update
     else
       productivity_at_year = Product.find_by(id: product_id).productivities.create!(productivity_params)
     end
-    productivity_at_year
+    return Product.find_by(id: product_id), productivity_at_year
   end  
 end
