@@ -1,5 +1,5 @@
 module SectorService::Show
-  def self.call sector_id
-    Sector.find(sector_id)
+  def self.call subsector_id, sector_id
+    Subsector.find(subsector_id).sectors.find(sector_id)
   end
 end

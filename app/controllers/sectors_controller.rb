@@ -9,7 +9,7 @@ class SectorsController < ApplicationController
   end
 
   def show
-    sector = SectorService::Show.call(params[:id])
+    sector = SectorService::Show.call(params[:subsector_id], params[:id])
     data = {
       sector: SectorSerializer.new(sector)
     }

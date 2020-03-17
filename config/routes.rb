@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :subsectors, only: %i[index show]
+    resources :subsectors, only: %i[index show] do
+      resources :sectors, only: %i[index show]
+    end
   end
 end
