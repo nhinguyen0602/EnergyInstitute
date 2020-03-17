@@ -18,5 +18,9 @@ Rails.application.routes.draw do
         put 'productivities', to: 'productivities#update'
       end
     end
+
+    resources :subsectors, only: %i[index show] do
+      resources :sectors, only: %i[index show]
+    end
   end
 end
