@@ -8,4 +8,12 @@ class SectorsController < ApplicationController
     render_data data  
   end
 
+  def show
+    sector = SectorService::Show.call(params[:id])
+    data = {
+      sector: SectorSerializer.new(sector)
+    }
+    render_data data
+  end
+
 end
