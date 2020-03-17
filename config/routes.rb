@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     scope :enterprises do
       get '', to: 'enterprises#show'
       put '', to: 'enterprises#update'
+
+      scope :energy_connsumptions do
+        get '', to: 'energy_consumptions#show'
+        put '', to: 'energy_consumptions#update'
+      end
+
+      resources :products, only: %i[create show update destroy] do
+      end
     end
   end
 end

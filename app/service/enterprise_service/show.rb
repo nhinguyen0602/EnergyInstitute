@@ -4,4 +4,4 @@ module EnterpriseService::Show
     enterprise_details =  enterprise_details.at_year(year) if year.present?
     return user.enterprise, enterprise_details
   end  
-end
+end     
