@@ -4,8 +4,8 @@ module ProductivityService::Update
     if productivity_at_year
       productivity_at_year.update!(productivity_params)
     else
-      productivity_at_year = Product.find_by(id: product_id).productivities.create!(productivity_params)
+      productivity_at_year = Product.find_by(product_id).productivities.create!(productivity_params)
     end
-    return Product.find_by(id: product_id), productivity_at_year
+    return Product.find(product_id), productivity_at_year
   end  
 end
