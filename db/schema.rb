@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_03_12_073142) do
+=======
+ActiveRecord::Schema.define(version: 2020_03_19_071217) do
+>>>>>>> create model District
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "emission_factors", force: :cascade do |t|
     t.bigint "sector_id"
     t.string "emission_source"
@@ -154,4 +159,15 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
   add_foreign_key "products", "enterprises"
   add_foreign_key "sectors", "subsectors"
   add_foreign_key "users", "enterprises"
+=======
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+  end
+
+>>>>>>> create model District
 end
