@@ -1,5 +1,5 @@
 module DistrictService::Index
-  def self.call province_id
-    Province.find(province_id).districts
+  def self.call province
+    province.districts
   end
 end
