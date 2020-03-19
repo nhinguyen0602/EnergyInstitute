@@ -9,6 +9,14 @@ class WardsController < ApplicationController
     render_data data
   end
 
+  def show
+    ward = WardService::Show.call(@district, params[:id])
+    data = {
+      ward: ward
+    }
+    render_data data
+  end
+
   def get_district
     @district = District.find(params[:district_id])
   end
