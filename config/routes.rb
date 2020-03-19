@@ -24,5 +24,7 @@ Rails.application.routes.draw do
         resources :emission_factors, only: %i[index update]
       end
     end
+
+    resources :provinces, only: %i[index show]
   end
 end

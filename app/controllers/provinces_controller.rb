@@ -8,7 +8,7 @@ class ProvincesController < ApplicationController
    end
    
    def show
-    province = ProvinceService::Show.call
+    province = ProvinceService::Show.call(params[:id])
     data = {
       province: province
     }
