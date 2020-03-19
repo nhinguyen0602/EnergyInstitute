@@ -5,5 +5,13 @@ class ProvincesController < ApplicationController
       provinces: provinces
     }
     render_data data
-   end 
+   end
+   
+   def show
+    province = ProvinceService::Show.call
+    data = {
+      province: province
+    }
+    render_data data
+   end
 end
