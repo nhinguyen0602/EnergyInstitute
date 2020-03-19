@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     end
 
     resources :provinces, only: %i[index show] do
-      resources :districts, only: %i[index show]
+      resources :districts, only: %i[index show] do
+        resources :wards, only: %i[index show]
+      end
     end
   end
 end
