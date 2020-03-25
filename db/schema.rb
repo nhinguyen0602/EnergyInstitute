@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_073142) do
+ActiveRecord::Schema.define(version: 2020_03_19_071821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "province_id"
+    t.index ["province_id"], name: "index_districts_on_province_id"
+  end
 
   create_table "emission_factors", force: :cascade do |t|
     t.bigint "sector_id"
@@ -117,6 +123,11 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
     t.index ["enterprise_id"], name: "index_products_on_enterprise_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+  end
+
   create_table "sectors", force: :cascade do |t|
     t.bigint "subsector_id", null: false
     t.string "name"
@@ -142,6 +153,14 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
   end
 
+  create_table "wards", force: :cascade do |t|
+    t.string "name"
+    t.string "prefix"
+    t.bigint "district_id"
+    t.index ["district_id"], name: "index_wards_on_district_id"
+  end
+
+  add_foreign_key "districts", "provinces"
   add_foreign_key "emission_factors", "sectors"
   add_foreign_key "energy_consumptions", "enterprises"
   add_foreign_key "enterprise_details", "enterprises"
@@ -154,4 +173,5 @@ ActiveRecord::Schema.define(version: 2020_03_12_073142) do
   add_foreign_key "products", "enterprises"
   add_foreign_key "sectors", "subsectors"
   add_foreign_key "users", "enterprises"
+  add_foreign_key "wards", "districts"
 end
