@@ -1,5 +1,5 @@
 module ProductService::Destroy
   def self.call(product_id)
-    Product.find(product_id).destroy
+    Product.destroy(product_id)
   end    
 end

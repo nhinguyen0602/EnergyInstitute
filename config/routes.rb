@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       post 'sign_in', to: 'auth#sign_in'
       post 'sign_up', to: 'auth#sign_up'
     end 
-    scope :enterprises do
+    scope :enterprise do
       get '', to: 'enterprises#show'
       put '', to: 'enterprises#update'
 
@@ -14,6 +14,20 @@ Rails.application.routes.draw do
       end
 
       resources :products, only: %i[create show update destroy] do
+        get 'productivities', to: 'productivities#index'
+        put 'productivities', to: 'productivities#update'
+      end
+    end
+
+    resources :subsectors, only: %i[index show] do
+      resources :sectors, only: %i[index show] do
+        resources :emission_factors, only: %i[index update]
+      end
+    end
+
+    resources :provinces, only: %i[index show] do
+      resources :districts, only: %i[index show] do
+        resources :wards, only: %i[index show]
       end
     end
   end
