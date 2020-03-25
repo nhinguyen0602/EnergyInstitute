@@ -1,0 +1,2 @@
+class GreenhouseEmissionsController < ApplicationController
+end
