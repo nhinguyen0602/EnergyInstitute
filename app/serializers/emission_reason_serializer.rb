@@ -1,3 +1,3 @@
 class EmissionReasonSerializer < ActiveModel::Serializer
-  attributes :contain
+  attributes :description
 end
