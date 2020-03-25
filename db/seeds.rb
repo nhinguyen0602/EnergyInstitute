@@ -52,5 +52,7 @@ enterprise.energy_consumptions.create!(
   renewable_energy: 10
 )
 
+EmissionReason.create(contain: 'rác thải sinh hoạt')
+EmissionReason.create(contain: 'tiêu thụ điện năng')
 
 

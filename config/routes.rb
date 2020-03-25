@@ -13,6 +13,10 @@ Rails.application.routes.draw do
         put '', to: 'energy_consumptions#update'
       end
 
+      scope :greenhouse_emissions do
+        get '', to: 'greenhouse_emissions#index'
+      end
+
       resources :products, only: %i[create show update destroy] do
         get 'productivities', to: 'productivities#index'
         put 'productivities', to: 'productivities#update'
