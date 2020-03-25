@@ -5,6 +5,9 @@ module UtilService::TokenGenerator
       user_id: user.id,
       email: user.email
     }
+
+    puts payload
+    puts user
     UtilService::JsonWebToken.encode(payload)
   end
 
