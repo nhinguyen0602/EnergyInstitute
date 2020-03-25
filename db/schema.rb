@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_071821) do
   end
 
   create_table "emission_reasons", force: :cascade do |t|
-    t.string "contain"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

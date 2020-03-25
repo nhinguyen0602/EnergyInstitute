@@ -52,7 +52,16 @@ enterprise.energy_consumptions.create!(
   renewable_energy: 10
 )
 
-EmissionReason.create(contain: 'rác thải sinh hoạt')
-EmissionReason.create(contain: 'tiêu thụ điện năng')
+EmissionReason.create(description: 'rác thải sinh hoạt')
+EmissionReason.create(description: 'tiêu thụ điện năng')
 
+enterprise.greenhouse_emissions.create!(
+  year_of_investigation: 2019
+)
 
+GreenhouseEmission.first.greenhouse_emission_details.create!(
+  emission_reason_id: 1,
+  carbon_dioxide: 10,
+  methane: 10,
+  nitrous_dioxide: 10
+)
