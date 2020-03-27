@@ -9,7 +9,7 @@ class EnergyConsumption < ApplicationRecord
   scope :belong_enterprise, ->(enterprise_id){ where("enterprise_id= ?", enterprise_id) }
   scope :at_year, ->(year){
       if year
-        swhere("year_of_investigation =?", year)
+        where("year_of_investigation =?", year)
       else
         all
       end
