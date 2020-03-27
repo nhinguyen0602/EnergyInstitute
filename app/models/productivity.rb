@@ -4,5 +4,11 @@ class Productivity < ApplicationRecord
   belongs_to :product
 
   scope :belong_product, ->(product_id){ where("product_id= ?", product_id) }
-  scope :at_year, ->(year){ where("year_of_investigation =?", year) }
+  scope :at_year, ->(year){ 
+    if year
+      where("year_of_investigation =?", year) 
+    else 
+      all
+    end
+  }
 end
