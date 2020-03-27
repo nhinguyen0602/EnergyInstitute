@@ -1,6 +1,6 @@
 class ProductivitiesController < ApplicationController
-  def index
-    productivities = ProductivityService::Index.call(params[:product_id], params[:year])
+  def show
+    productivities = ProductivityService::Show.call(params[:product_id], params[:year])
     data = {
       productivities: productivities
     }
