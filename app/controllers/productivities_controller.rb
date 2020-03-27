@@ -17,6 +17,10 @@ class ProductivitiesController < ApplicationController
     render_data data 
   end
 
+  def destroy
+    ProductivityService::Destroy.call(params[:id])
+  end
+
   def productivity_params
     params.require(%i[year_of_investigation amount])
     params.permit(:year_of_investigation, :amount)
