@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         get '', to: 'greenhouse_emissions#index'
       end
 
-      resources :products, only: %i[create show update destroy] do
+      resources :products, only: %i[index create show update destroy] do
         get 'productivities', to: 'productivities#show'
         put 'productivities', to: 'productivities#update'
         delete 'productivities/:id', to: 'productivities#destroy'
