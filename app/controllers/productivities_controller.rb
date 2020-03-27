@@ -1,20 +1,22 @@
 class ProductivitiesController < ApplicationController
-  def index
-    product, productivities = ProductivityService::Index.call(params[:product_id], params[:year])
+  def show
+    productivities = ProductivityService::Show.call(params[:product_id], params[:year])
     data = {
-      product: product,
       productivities: productivities
     }
     render_data data      
   end
 
   def update
-    product, productivities = ProductivityService::Update.call(params[:product_id], productivity_params)
+    productivities = ProductivityService::Update.call(params[:product_id], productivity_params)
     data = {
-      product: product,
       productivities: productivities
     }
     render_data data 
+  end
+
+  def destroy
+    ProductivityService::Destroy.call(params[:id])
   end
 
   def productivity_params
