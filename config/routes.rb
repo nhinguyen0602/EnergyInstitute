@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       scope :energy_consumptions do
         get '', to: 'energy_consumptions#show'
         put '', to: 'energy_consumptions#update'
+        delete ':id', to: 'energy_consumptions#destroy'
       end
 
       scope :greenhouse_emissions do
