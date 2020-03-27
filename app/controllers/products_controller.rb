@@ -1,4 +1,13 @@
 class ProductsController < ApplicationController
+
+  def index
+    products = ProductService::Index.call(@current_user.enterprise)
+    data = {
+      products: products
+    }
+    render_data data
+  end
+
   def create
     product = ProductService::Create.call(@current_user.enterprise.id, product_params)
     render_one product
