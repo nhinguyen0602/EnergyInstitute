@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resources :products, only: %i[create show update destroy] do
         get 'productivities', to: 'productivities#index'
         put 'productivities', to: 'productivities#update'
+        delete 'productivities/:id', to: 'productivities#destroy'
       end
     end
 
