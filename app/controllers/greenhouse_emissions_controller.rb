@@ -11,7 +11,7 @@ class GreenhouseEmissionsController < ApplicationController
   end
 
   def create
-    greenhouse_mission = GreenhouseEmissionService::Create.call(@enterprise, greenhouse_emission_params)
+    greenhouse_mission = GreenhouseEmissionService::UpdateOrCreate.call(@enterprise, greenhouse_emission_params)
     data = {
       greenhouse_mission: GreenhouseEmissionSerializer.new(greenhouse_mission)
     }
