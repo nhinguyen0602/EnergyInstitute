@@ -18,6 +18,14 @@ class GreenhouseEmissionsController < ApplicationController
     render_data data
   end
 
+  def show
+    greenhouse_mission = GreenhouseEmissionService::Show.call(params[:id])
+    data = {
+      greenhouse_mission: GreenhouseEmissionSerializer.new(greenhouse_mission)
+    }
+    render_data data
+  end
+
   def get_enterprise
     @enterprise = @current_user.enterprise
   end

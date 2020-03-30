@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
 
       scope :greenhouse_emissions do
+        get '/:id', to: 'greenhouse_emissions#show'
         get '', to: 'greenhouse_emissions#index'
         post '', to: 'greenhouse_emissions#create'
       end
