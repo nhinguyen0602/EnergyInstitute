@@ -8,6 +8,4 @@ class EnterpriseDetail < ApplicationRecord
   belongs_to :enterprise
 
   scope :belong_enterprise, ->(enterprise_id){ where("enterprise_id= ?", enterprise_id) }
-  scope :at_year, ->(year){ where("year_of_investigation =?", year) }
-  scope :order_by_year, ->{order("year_of_investigation DESC")}
 end

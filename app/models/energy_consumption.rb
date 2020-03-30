@@ -7,12 +7,4 @@ class EnergyConsumption < ApplicationRecord
   validates :renewable_energy, presence:true
 
   scope :belong_enterprise, ->(enterprise_id){ where("enterprise_id= ?", enterprise_id) }
-  scope :at_year, ->(year){
-      if year
-        swhere("year_of_investigation =?", year)
-      else
-        all
-      end
-    }
-  scope :order_by_year, ->{order("year_of_investigation DESC")}
 end
