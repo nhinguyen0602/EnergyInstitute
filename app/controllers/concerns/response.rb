@@ -1,6 +1,6 @@
 module Response
 
-  def render_data(data, code = nil)
+  def render_data(data, code = 0)
     response_body = {
       code: code,
       data: data
