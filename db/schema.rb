@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_071821) do
+ActiveRecord::Schema.define(version: 2020_03_30_032239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "climate_changes", force: :cascade do |t|
+    t.bigint "sector_id"
+    t.integer "year_of_investigation"
+    t.float "intensity"
+    t.float "energy_consumption"
+    t.float "emission_structure"
+    t.float "cnc_cnx_ratio"
+    t.float "cssx_mt_ratio"
+    t.float "cssx_sh_ratio"
+    t.float "gtsx_hotro_ratio"
+    t.float "ctx_ratio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sector_id"], name: "index_climate_changes_on_sector_id"
+  end
 
   create_table "districts", force: :cascade do |t|
     t.string "name"
@@ -160,6 +176,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_071821) do
     t.index ["district_id"], name: "index_wards_on_district_id"
   end
 
+  add_foreign_key "climate_changes", "sectors"
   add_foreign_key "districts", "provinces"
   add_foreign_key "emission_factors", "sectors"
   add_foreign_key "energy_consumptions", "enterprises"
