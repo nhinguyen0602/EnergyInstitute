@@ -1,6 +1,6 @@
 class ErrorSerializer
   
-  def initialize(message, code = 0)
+  def initialize(message, code)
     @code = code
     @message = message 
   end
