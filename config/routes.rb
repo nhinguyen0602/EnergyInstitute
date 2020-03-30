@@ -16,7 +16,8 @@ Rails.application.routes.draw do
       scope :greenhouse_emissions do
         get '/:id', to: 'greenhouse_emissions#show'
         get '', to: 'greenhouse_emissions#index'
-        post '', to: 'greenhouse_emissions#create'
+        put '', to: 'greenhouse_emissions#create'
+        delete '/:id', to: 'greenhouse_emissions#destroy'
       end
 
       resources :products, only: %i[create show update destroy] do

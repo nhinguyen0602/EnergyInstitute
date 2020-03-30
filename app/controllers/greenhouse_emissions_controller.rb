@@ -26,6 +26,10 @@ class GreenhouseEmissionsController < ApplicationController
     render_data data
   end
 
+  def destroy
+    GreenhouseEmissionService::Destroy.call(params[:id])
+  end
+
   def get_enterprise
     @enterprise = @current_user.enterprise
   end
