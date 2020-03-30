@@ -10,6 +10,14 @@ class ClimateChangesController < ApplicationController
     render_data data
   end
 
+  def show
+    climate_change = ClimateChangeService::Show.call(@sector, params[:year_of_investigation])
+    data = {
+      climate_change: climate_change
+    }
+    render_data data
+  end
+
   def get_sector
     @sector = Sector.find(params[:sector_id])
   end
