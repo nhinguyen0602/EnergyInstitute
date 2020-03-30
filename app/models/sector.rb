@@ -3,4 +3,5 @@ class Sector < ApplicationRecord
   belongs_to :subsector
   has_many :enterprises, dependent: :destroy
   has_one :emission_factor
+  has_many :climate_changes
 end

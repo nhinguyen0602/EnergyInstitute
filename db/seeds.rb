@@ -65,3 +65,15 @@ GreenhouseEmission.first.greenhouse_emission_details.create!(
   methane: 10,
   nitrous_dioxide: 10
 )
+
+sector.climate_changes.create!(
+  year_of_investigation: 2019,
+  intensity: 10,
+  energy_consumption: 10,
+  emission_structure: 10,
+  cnc_cnx_ratio: 10,
+  cssx_mt_ratio: 10,
+  cssx_sh_ratio:10,
+  gtsx_hotro_ratio: 10,
+  ctx_ratio: 10
+)

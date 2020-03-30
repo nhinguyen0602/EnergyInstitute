@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :subsectors, only: %i[index show] do
       resources :sectors, only: %i[index show] do
         resources :emission_factors, only: %i[index update]
+        resources :climate_changes, param: :year_of_investigation, only: %i[index show]
       end
     end
 
