@@ -41,6 +41,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :emission_reasons, only: %i[index]
+    resources :emission_reasons, only: %i[index show]
   end
 end

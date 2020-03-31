@@ -6,4 +6,12 @@ class EmissionReasonsController < ApplicationController
     }
     render_data data
   end
+
+  def show
+    reason = EmissionReasonService::Show.call(params[:id])
+    data = {
+      reason: reason
+    }
+    render_data data
+  end
 end
