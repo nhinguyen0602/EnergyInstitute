@@ -40,5 +40,7 @@ Rails.application.routes.draw do
         resources :wards, only: %i[index show]
       end
     end
+
+    resources :emission_reasons, only: %i[index show]
   end
 end
