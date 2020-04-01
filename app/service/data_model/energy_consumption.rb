@@ -1,7 +1,6 @@
 module DataModel::EnergyConsumption
   def self.call
     xlsx = Roo::Spreadsheet.open(Rails.root.join('app/data/data.xlsx').to_s)
-    byebug
     sheet = xlsx.sheet('TDNL')
     (7..sheet.last_row).map do |index|
       row = sheet.row(index)
