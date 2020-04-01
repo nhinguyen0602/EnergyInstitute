@@ -35,7 +35,7 @@ class GreenhouseEmissionsController < ApplicationController
   end
 
   def greenhouse_emission_params
-    params.require(%i[year_of_investigation carbon_dioxide methane nitrous_dioxide emission_reason_id])
+    params.require(%i[year_of_investigation carbon_dioxide methane nitrous_dioxide ])
     params.permit(:year_of_investigation, :carbon_dioxide, :methane, :nitrous_dioxide, :emission_reason_id)
   end
 
