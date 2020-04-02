@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_032239) do
+ActiveRecord::Schema.define(version: 2020_03_31_104639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,12 @@ ActiveRecord::Schema.define(version: 2020_03_30_032239) do
     t.string "name"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "sectors", force: :cascade do |t|
     t.bigint "subsector_id", null: false
     t.string "name"
@@ -166,7 +172,9 @@ ActiveRecord::Schema.define(version: 2020_03_30_032239) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "enterprise_id"
+    t.bigint "role_id"
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   create_table "wards", force: :cascade do |t|
@@ -190,5 +198,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_032239) do
   add_foreign_key "products", "enterprises"
   add_foreign_key "sectors", "subsectors"
   add_foreign_key "users", "enterprises"
+  add_foreign_key "users", "roles"
   add_foreign_key "wards", "districts"
 end

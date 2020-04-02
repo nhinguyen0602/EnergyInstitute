@@ -5,8 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                   format: { with: VALID_EMAIL_REGEX }
   has_secure_password
-  validates :password, 
+  validates :password, :on => :create ,
   confirmation: { case_sensitive: true },
   length: { minimum: 8, maximum: 32 }
-  belongs_to :enterprise
+  belongs_to :role
 end
