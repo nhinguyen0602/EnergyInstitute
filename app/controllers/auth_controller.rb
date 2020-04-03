@@ -15,7 +15,7 @@ class AuthController < ApplicationController
     data = {
       token: token,
       user_id: user.id,
-      role: user.role
+      role: RoleSerializer.new(user.role)
     }
     render_data data
   end
