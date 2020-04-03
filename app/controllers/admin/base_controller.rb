@@ -1,6 +1,3 @@
-# Base controller for super admin requests
-# Create another controller inherite from SupperAdminController by this form below
-# SuperAdmin::{ControllerName} < SuperAdmin::BaseController
 class Admin::BaseController < ApplicationController
 
   before_action :authorize_request_admin
