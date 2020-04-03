@@ -4,7 +4,7 @@ module UtilService::TokenGenerator
     payload = {
       user_id: user.id,
       email: user.email,
-      role: Role.find(user.role_id).name
+      role_id: Role.find(user.role_id).id
     }
     UtilService::JsonWebToken.encode(payload)
   end
