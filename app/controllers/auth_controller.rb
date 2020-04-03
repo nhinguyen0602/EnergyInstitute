@@ -11,9 +11,11 @@ class AuthController < ApplicationController
   end
 
   def sign_in
-    token= AuthService::SignIn.call(sign_in_params)
+    token, user= AuthService::SignIn.call(sign_in_params)
     data = {
       token: token,
+      user: UserSerializer.new(user),
+      role: RoleSerializer.new(user.role)
     }
     render_data data
   end
