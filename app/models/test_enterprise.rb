@@ -1,0 +1,2 @@
+class TestEnterprise < ApplicationRecord
+end
