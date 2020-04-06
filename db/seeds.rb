@@ -33,11 +33,21 @@ role = Role.create!(
   name: 'user'
 )
 
+role_admin = Role.create!(
+  name: 'admin'
+)
+
 user = enterprise.users.create!(
   name: 'Nguyễn Nhi', 
   email: 'nhinguyen@novahub.vn',
   password: 'nhinhinhi',
   role_id: role.id
+)
+
+admin = role_admin.users.create!(
+  name: 'ievn.com.vn',
+  email: 'ievn.com.vn',
+  password: '12345678'
 )
 
 enterprise.energy_consumptions.create!(
