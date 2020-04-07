@@ -8,4 +8,13 @@ class ApplicationRecord < ActiveRecord::Base
       all
     end
   }
+
+  scope :in_year, ->(year) {
+    if year.present?
+      where("nam = ?", year)
+    else
+      all
+    end
+  }
+  
 end

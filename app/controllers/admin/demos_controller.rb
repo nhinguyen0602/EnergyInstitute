@@ -9,4 +9,13 @@ class Admin::DemosController < Admin::BaseController
     }
     render_data data
   end
+
+  def energies
+    energies = DemoService::EnergyIndex.call(params[:year], params[:page], params[:amount])
+    data = {
+      energies: energies
+    }
+    render_data data
+  end
+
 end

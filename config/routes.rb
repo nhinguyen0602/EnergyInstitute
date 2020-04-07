@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope :api do
     namespace :admin do
       get 'enterprises', to: 'demos#enterprises'
+      get 'energies', to: 'demos#energies'
       # resources :enterprises, only: %i[index]
     end
     scope :auth do 
