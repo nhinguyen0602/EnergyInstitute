@@ -18,4 +18,12 @@ class Admin::DemosController < Admin::BaseController
     render_data data
   end
 
+  def products
+    products = DemoService::ProductIndex.call(params[:year], params[:page], params[:amount])
+    data = {
+      products: products
+    }
+    render_data data
+  end
+
 end
