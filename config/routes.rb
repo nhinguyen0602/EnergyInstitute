@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get 'enterprises', to: 'demos#enterprises'
       get 'energies', to: 'demos#energies'
       get 'products', to: 'demos#products'
+      get 'emission_energies', to: 'demos#emission_energies'
       # resources :enterprises, only: %i[index]
     end
     scope :auth do 
