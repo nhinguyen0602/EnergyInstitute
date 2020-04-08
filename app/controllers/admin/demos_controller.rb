@@ -47,4 +47,13 @@ class Admin::DemosController < Admin::BaseController
     render_data data
   end
 
+  def emission_sum
+    emission_sum, length = DemoService::EmissionSumIndex.call(params[:year], params[:page], params[:amount])
+    data = {
+      emission_sum: emission_sum,
+      length: length
+    } 
+    render_data data
+  end
+
 end
