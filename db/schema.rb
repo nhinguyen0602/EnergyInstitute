@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_040809) do
+ActiveRecord::Schema.define(version: 2020_04_08_065046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,24 @@ ActiveRecord::Schema.define(version: 2020_04_08_040809) do
     t.float "tong_ch4"
     t.float "tong_n2o"
     t.float "tong"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_emission_products", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ma_so_doanh_nghiep"
+    t.string "ten_doanh_nghiep"
+    t.integer "ma_nganh_2"
+    t.string "te_cap_2"
+    t.string "ma_sp"
+    t.string "ten_sp"
+    t.string "don_vi"
+    t.integer "khoi_luong"
+    t.float "hspt_co2"
+    t.float "hspt_ch4"
+    t.float "phat_thai_co2"
+    t.float "phat_thai_ch4"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
