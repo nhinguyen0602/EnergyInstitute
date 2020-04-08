@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_082248) do
+ActiveRecord::Schema.define(version: 2020_04_08_024504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,35 @@ ActiveRecord::Schema.define(version: 2020_04_07_082248) do
 
   create_table "subsectors", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_emission_energies", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ten_doanh_nghiep"
+    t.string "ma_so_doanh_nghiep"
+    t.integer "ma_nganh_cap_2"
+    t.string "ten_nganh_cap_2"
+    t.float "dien"
+    t.float "co2_qtnl"
+    t.float "ch4_qtnl"
+    t.float "n20_qtnl"
+    t.float "co2_pnl"
+    t.float "ch4_pnl"
+    t.float "n20_pnl"
+    t.float "co2_pt"
+    t.float "ch4_pt"
+    t.float "n20_pt"
+    t.float "co2_qtcn"
+    t.float "ch4_qtcn"
+    t.float "co2_tong_tru_dien"
+    t.float "ch4_tong_tru_dien"
+    t.float "n20_tong_tru_dien"
+    t.float "co2_tong_ca_dien"
+    t.float "ch4_tong_ca_dien"
+    t.float "n20_tong_ca_dien"
+    t.float "co2_tong_quy_doi"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
