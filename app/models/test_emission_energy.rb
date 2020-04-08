@@ -1,2 +1,0 @@
-class TestEmissionEnergy < ApplicationRecord
-end

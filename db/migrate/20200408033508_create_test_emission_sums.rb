@@ -1,6 +1,6 @@
-class CreateTestEmissionEnergies < ActiveRecord::Migration[6.0]
+class CreateTestEmissionSums < ActiveRecord::Migration[6.0]
   def change
-    create_table :test_emission_energies do |t|
+    create_table :test_emission_sums do |t|
       t.integer :nam
       t.string :ten_doanh_nghiep
       t.string :ma_so_doanh_nghiep

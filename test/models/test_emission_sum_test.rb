@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestEmissionEnergyTest < ActiveSupport::TestCase
+class TestEmissionSumTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
