@@ -38,4 +38,13 @@ class Admin::DemosController < Admin::BaseController
     render_data data
   end
 
+  def emission_products
+    emission_products, length = DemoService::EmissionProductIndex.call(params[:year], params[:page], params[:amount])
+    data = {
+      emission_products: emission_products,
+      length: length
+    } 
+    render_data data
+  end
+
 end
