@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_104639) do
+ActiveRecord::Schema.define(version: 2020_04_08_065046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,160 @@ ActiveRecord::Schema.define(version: 2020_03_31_104639) do
 
   create_table "subsectors", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_emission_energies", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ma_so_doanh_nghiep"
+    t.string "ten_doanh_nghiep"
+    t.integer "ma_cap_2"
+    t.string "ten_nganh_cap_2"
+    t.string "he_so_su_dung_nang_luong"
+    t.float "dien"
+    t.float "antracite_co2"
+    t.float "antracite_ch4"
+    t.float "antracite_n2o"
+    t.float "coke_co2"
+    t.float "coke_ch4"
+    t.float "coke_n2o"
+    t.float "bitum_co2"
+    t.float "bitum_ch4"
+    t.float "bitum_n2o"
+    t.float "do_co2"
+    t.float "do_ch4"
+    t.float "do_n2o"
+    t.float "fo_co2"
+    t.float "fo_ch4"
+    t.float "fo_n2o"
+    t.float "lpg_co2"
+    t.float "lpg_ch4"
+    t.float "lpg_n2o"
+    t.float "khi_tu_nhien_co2"
+    t.float "khi_tu_nhien_ch4"
+    t.float "khi_tu_nhien_n2o"
+    t.float "nang_luong_sinh_khoi_co2"
+    t.float "nang_luong_sinh_khoi_ch4"
+    t.float "nang_luong_sinh_khoi_n2o"
+    t.float "tong_co2"
+    t.float "tong_ch4"
+    t.float "tong_n2o"
+    t.float "tong"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_emission_products", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ma_so_doanh_nghiep"
+    t.string "ten_doanh_nghiep"
+    t.integer "ma_nganh_2"
+    t.string "te_cap_2"
+    t.string "ma_sp"
+    t.string "ten_sp"
+    t.string "don_vi"
+    t.integer "khoi_luong"
+    t.float "hspt_co2"
+    t.float "hspt_ch4"
+    t.float "phat_thai_co2"
+    t.float "phat_thai_ch4"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_emission_sums", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ten_doanh_nghiep"
+    t.string "ma_so_doanh_nghiep"
+    t.integer "ma_cap_2"
+    t.string "ten_nganh_cap_2"
+    t.float "dien"
+    t.float "qtnl_co2"
+    t.float "qtnl_ch4"
+    t.float "qtnl_n2o"
+    t.float "pnl_co2"
+    t.float "pnl_ch4"
+    t.float "pnl_n2o"
+    t.float "phat_tan_co2"
+    t.float "phat_tan_ch4"
+    t.float "phat_tan_n2o"
+    t.float "qtcn_co2"
+    t.float "qtcn_ch4"
+    t.float "tong_tru_dien_co2"
+    t.float "tong_tru_dien_ch4"
+    t.float "tong_tru_dien_n2o"
+    t.float "tong_co2"
+    t.float "tong_ch4"
+    t.float "tong_n2o"
+    t.float "tong_quy_doi"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_energies", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ma_so_doanh_nghiep"
+    t.string "ten_doanh_nghiep"
+    t.integer "ma_cap"
+    t.string "ten_nganh"
+    t.float "dien"
+    t.float "antracite_nltt"
+    t.float "bitum_nltt"
+    t.float "coc_nltt"
+    t.float "ko_nltt"
+    t.float "do_nltt"
+    t.float "fo_nltt"
+    t.float "lpg_nltt"
+    t.float "ng_nltt"
+    t.float "npk_pnl"
+    t.float "hs_pnl"
+    t.float "than_pnl"
+    t.float "ng_pnl"
+    t.float "dien_pnl"
+    t.float "antracite_tj"
+    t.float "bitum_tj"
+    t.float "coc_tj"
+    t.float "ko_tj"
+    t.float "do_tj"
+    t.float "fo_tj"
+    t.float "lpg_tj"
+    t.float "ng_tj"
+    t.float "tong"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_enterprises", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ma_so_doanh_nghiep"
+    t.string "ten_doanh_nghiep"
+    t.string "tinh"
+    t.string "huyen"
+    t.string "xa"
+    t.float "toa_do_X"
+    t.float "toa_do_Y"
+    t.string "nganh_cap_1"
+    t.integer "ma_Cap"
+    t.string "ten_nganh_cap_2"
+    t.integer "gtsx"
+    t.integer "so_lao_dong"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "test_products", force: :cascade do |t|
+    t.integer "nam"
+    t.string "ma_so_doanh_nghiep"
+    t.string "ten_doanh_nghiep"
+    t.integer "stt"
+    t.string "ma_san_pham"
+    t.string "ten_san_pham"
+    t.integer "ma_cap_2"
+    t.string "ten_nganh_cap_2"
+    t.string "don_vi"
+    t.integer "so_luong"
+    t.integer "gtsx"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

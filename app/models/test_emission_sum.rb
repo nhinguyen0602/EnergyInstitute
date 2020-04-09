@@ -1,0 +1,2 @@
+class TestEmissionSum < ApplicationRecord
+end

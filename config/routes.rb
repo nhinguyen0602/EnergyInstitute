@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   scope :api do
     namespace :admin do
-      resources :enterprises, only: %i[index]
+      get 'enterprises', to: 'demos#enterprises'
+      get 'energies', to: 'demos#energies'
+      get 'products', to: 'demos#products'
+      get 'emission_energies', to: 'demos#emission_energies'
+      get 'emission_products', to: 'demos#emission_products'
+      get 'emission_sum', to: 'demos#emission_sum'
+      # resources :enterprises, only: %i[index]
     end
     scope :auth do 
       post 'sign_in', to: 'auth#sign_in'

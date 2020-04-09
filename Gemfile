@@ -5,6 +5,8 @@ ruby '2.6.3'
 
 gem "roo", "~> 2.8.0"
 
+gem 'will_paginate'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 

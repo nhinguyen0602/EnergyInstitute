@@ -1,0 +1,2 @@
+class TestEmissionProduct < ApplicationRecord
+end
