@@ -29,10 +29,25 @@ enterprise.enterprise_details.create!(
   production_value: 100000
 )
 
+role_user = Role.create!(
+  name: 'user'
+)
+
+role_admin = Role.create!(
+  name: 'admin'
+)
+
 user = enterprise.users.create!(
   name: 'Nguyễn Nhi', 
   email: 'nhinguyen@novahub.vn',
-  password: 'nhinhinhi'
+  password: 'nhinhinhi',
+  role_id: role_user.id
+)
+
+admin = role_admin.users.create!(
+  name: 'admin',
+  email: 'email@gmail.com',
+  password: '1234567890'
 )
 
 enterprise.energy_consumptions.create!(
