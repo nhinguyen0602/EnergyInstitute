@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope :api do
     namespace :admin do
       resources :enterprises, only: %i[index]
-      resources :users, only: %i[index create]
+      resources :users, only: %i[index create show]
     end
     scope :auth do 
       post 'sign_in', to: 'auth#sign_in'
