@@ -23,6 +23,14 @@ class Admin::UsersController < Admin::BaseController
     }
     render_data data
   end
+
+  def update
+    user = UserService::Update.call(params[:id], user_params)
+    data = {
+      user: user
+    }
+    render_data data
+  end
   
   def user_params
     params.require(%i[email name password])
