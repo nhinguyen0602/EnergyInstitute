@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Enterprise, type: :model do
 
   describe "Associations" do
-    it "belongs to role" do
+    it "belongs to sector" do
       association = described_class.reflect_on_association(:sector)
       expect(association.macro).to eq :belongs_to
     end
