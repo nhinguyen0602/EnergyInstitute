@@ -16,6 +16,14 @@ FactoryBot.define do
 end
 
 RSpec.describe User, type: :model do
+
+  describe "Associations" do
+    it "belongs to role" do
+      association = described_class.reflect_on_association(:role)
+      expect(association.macro).to eq :belongs_to
+    end
+  end
+
   describe "Validations" do
     subject { FactoryBot.create :user }
     it "is valid with valid attributes" do
