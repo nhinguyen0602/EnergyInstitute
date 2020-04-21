@@ -23,6 +23,8 @@ gem 'bcrypt'
 
 gem 'jwt'
 
+gem 'rails-controller-testing'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -39,6 +41,16 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rubocop-rspec'
+  gem 'fuubar'
+  gem 'faker'
 end
 
 group :test do
