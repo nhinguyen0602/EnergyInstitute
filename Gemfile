@@ -23,6 +23,8 @@ gem 'bcrypt'
 
 gem 'jwt'
 
+gem 'rails-controller-testing'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -37,6 +39,25 @@ group :development, :test do
   gem 'sqlite3', '1.3.13'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rubocop-rspec'
+  gem 'fuubar'
+  gem 'faker'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'airborne'
+  gem 'shoulda-matchers'
+  gem 'minitest-reporters'
 end
 
 group :development do

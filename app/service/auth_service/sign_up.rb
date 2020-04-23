@@ -1,7 +1,6 @@
 module AuthService::SignUp
   def self.call(sign_up_params)
-    user = User.find_by(email: sign_up_params[:email])
-    raise(ExceptionHandler::BadRequestError, Message.email_is_existed) if user
+    sign_up_params[:role] = RoleService::Find.user
     User.create!(sign_up_params)
   end
 end
