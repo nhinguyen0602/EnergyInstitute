@@ -1,0 +1,20 @@
+version: '3'
+volumes:
+  postgres_data: {}
+services:
+  api:
+    container_name: "energy_api"
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+  db:
+    container_name: "energy_db"
+    image: postgres:10
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
